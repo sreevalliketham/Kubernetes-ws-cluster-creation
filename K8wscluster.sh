@@ -29,6 +29,7 @@ kubectl version
 
 yum install -y aws-cli
 
+
 ACCESS_KEY=$(aws ssm get-parameter --name "my-access-key" --with-decryption --query "Parameter.Value" --output text)
 SECRET_KEY=$(aws ssm get-parameter --name "my-secret-key" --with-decryption --query "Parameter.Value" --output text)
 
@@ -41,4 +42,5 @@ echo "aws_secret_access_key=$SECRET_KEY" >> /home/ec2-user/.aws/credentials
 echo "[default]" > /home/ec2-user/.aws/config
 echo "region=us-east-1" >> /home/ec2-user/.aws/config
 chown -R ec2-user:ec2-user /home/ec2-user/.aws
-             
+
+#  eksctl create cluster -f eks.yaml

@@ -18,3 +18,12 @@ data "aws_ami" "joindevops" {
   }
 }
 
+data "aws_ssm_parameter" "access_key" {
+  name            = "my-access-key"
+  with_decryption = true
+}
+
+data "aws_ssm_parameter" "secret_key" {
+  name            = "my-secret-key"
+  with_decryption = true
+}
