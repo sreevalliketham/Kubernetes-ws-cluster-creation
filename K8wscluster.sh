@@ -26,24 +26,3 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linu
 chmod +x ./kubectl
 sudo mv kubectl /usr/local/bin/kubectl
 kubectl version
-<<<<<<< HEAD
-=======
-
-yum install -y aws-cli
-
-
-ACCESS_KEY=$(aws ssm get-parameter --name "my-access-key" --with-decryption --query "Parameter.Value" --output text)
-SECRET_KEY=$(aws ssm get-parameter --name "my-secret-key" --with-decryption --query "Parameter.Value" --output text)
-
-mkdir -p /home/ec2-user/.aws
-
-echo "[default]" > /home/ec2-user/.aws/credentials
-echo "aws_access_key_id=$ACCESS_KEY" >> /home/ec2-user/.aws/credentials
-echo "aws_secret_access_key=$SECRET_KEY" >> /home/ec2-user/.aws/credentials
-
-echo "[default]" > /home/ec2-user/.aws/config
-echo "region=us-east-1" >> /home/ec2-user/.aws/config
-chown -R ec2-user:ec2-user /home/ec2-user/.aws
-
-#  eksctl create cluster -f eks.yaml
->>>>>>> 229109b0d10580a8c30806e2cb269f205fec546f
